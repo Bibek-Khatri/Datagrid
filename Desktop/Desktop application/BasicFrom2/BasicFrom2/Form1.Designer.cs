@@ -52,6 +52,7 @@
             panel5 = new Panel();
             dataGridView1 = new DataGridView();
             panel4 = new Panel();
+            Update = new Button();
             Edit = new Button();
             txtID = new TextBox();
             label7 = new Label();
@@ -70,7 +71,6 @@
             txtName = new TextBox();
             panel2 = new Panel();
             label1 = new Label();
-            Update = new Button();
             panel1.SuspendLayout();
             panel3.SuspendLayout();
             panel5.SuspendLayout();
@@ -146,6 +146,16 @@
             panel4.Name = "panel4";
             panel4.Size = new Size(360, 410);
             panel4.TabIndex = 0;
+            // 
+            // Update
+            // 
+            Update.Location = new Point(203, 344);
+            Update.Name = "Update";
+            Update.Size = new Size(72, 29);
+            Update.TabIndex = 16;
+            Update.Text = "Update";
+            Update.UseVisualStyleBackColor = true;
+            Update.Click += Update_Click;
             // 
             // Edit
             // 
@@ -225,7 +235,7 @@
             button2.Name = "button2";
             button2.Size = new Size(77, 27);
             button2.TabIndex = 8;
-            button2.Text = "Clear";
+            button2.Text = "Delete";
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
@@ -313,16 +323,6 @@
             label1.TabIndex = 0;
             label1.Text = "Welcome to User Info page";
             label1.Click += label1_Click;
-            // 
-            // Update
-            // 
-            Update.Location = new Point(203, 344);
-            Update.Name = "Update";
-            Update.Size = new Size(72, 29);
-            Update.TabIndex = 16;
-            Update.Text = "Update";
-            Update.UseVisualStyleBackColor = true;
-            Update.Click += Update_Click;
             // 
             // Form1
             // 

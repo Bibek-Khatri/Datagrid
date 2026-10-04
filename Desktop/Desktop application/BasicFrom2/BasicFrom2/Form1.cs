@@ -105,32 +105,40 @@ namespace BasicFrom2
             // Show new ID
             txtID.Text = nextID.ToString();
 
-            // Clear form
-            ClearFields();
+         
         }
 
         // Clear button
         private void button2_Click(object sender, EventArgs e)
         {
-            ClearFields();
-        }
-
-        // Clear all input fields
-        private void ClearFields()
-        {
-            txtName.Clear();
-            txtEmail.Clear();
-            txtContact.Clear();
-
-            Male.Checked = false;
-            Female.Checked = false;
-
-            if (Country.Items.Count > 0)
+            if (dataGridView1.SelectedRows.Count > 0)
             {
-                Country.SelectedIndex = 0;
+                // Confirm before deleting
+                DialogResult result = MessageBox.Show("Are you sure you want to delete this row?",
+                                                      "Confirm Delete",
+                                                      MessageBoxButtons.YesNo,
+                                                      MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    dataGridView1.Rows.RemoveAt(dataGridView1.SelectedRows[0].Index);
+                    MessageBox.Show("Row deleted successfully!", "Delete", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    // Optional: clear form fields after delete
+                    txtID.Clear();
+                    txtName.Clear();
+                    txtEmail.Clear();
+                    txtContact.Clear();
+                    Male.Checked = false;
+                    Female.Checked = false;
+                    Country.SelectedIndex = -1;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a row to delete.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
-            txtName.Focus();
         }
 
         // Label click event
